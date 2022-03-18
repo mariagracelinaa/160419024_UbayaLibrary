@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_library"
+    app:startDestination="@id/itemBuku">
+
+    <fragment
+        android:id="@+id/itemBuku"
+        android:name="com.ubaya.a160419024_ubayalibrary.BookListFragment"
+        android:label="fragment_book_list"
+        tools:layout="@layout/fragment_book_list" />
+    <fragment
+        android:id="@+id/itemPeminjaman"
+        android:name="com.ubaya.a160419024_ubayalibrary.PeminjamanFragment"
+        android:label="fragment_peminjaman"
+        tools:layout="@layout/fragment_peminjaman" />
+    <fragment
+        android:id="@+id/itemProfil"
+        android:name="com.ubaya.a160419024_ubayalibrary.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/itemKomputer"
+        android:name="com.ubaya.a160419024_ubayalibrary.KomputerFragment"
+        android:label="fragment_komputer"
+        tools:layout="@layout/fragment_komputer" />
+    <fragment
+        android:id="@+id/itemRuang"
+        android:name="com.ubaya.a160419024_ubayalibrary.RuangFragment"
+        android:label="fragment_ruang"
+        tools:layout="@layout/fragment_ruang" />
+</navigation>

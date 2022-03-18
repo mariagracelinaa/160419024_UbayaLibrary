@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemKomputer"
+        android:icon="@drawable/ic_baseline_computer_24"
+        android:title="Komputer" />
+    <item
+        android:id="@+id/itemRuang"
+        android:icon="@drawable/ic_baseline_meeting_room_24"
+        android:title="Ruang" />
+</menu>
