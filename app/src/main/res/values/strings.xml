@@ -2,4 +2,7 @@
     <string name="app_name">160419024_UbayaLibrary</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="penulis">Penulis</string>
+    <string name="title_place_holder" />
+    <string name="judul" />
 </resources>

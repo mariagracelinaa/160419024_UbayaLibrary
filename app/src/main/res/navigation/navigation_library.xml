@@ -7,27 +7,36 @@
 
     <fragment
         android:id="@+id/itemBuku"
-        android:name="com.ubaya.a160419024_ubayalibrary.BookListFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.BookListFragment"
         android:label="fragment_book_list"
-        tools:layout="@layout/fragment_book_list" />
+        tools:layout="@layout/fragment_book_list" >
+        <action
+            android:id="@+id/action_itemBuku_to_detailBukuFragment"
+            app:destination="@id/detailBukuFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemPeminjaman"
-        android:name="com.ubaya.a160419024_ubayalibrary.PeminjamanFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.PeminjamanFragment"
         android:label="fragment_peminjaman"
         tools:layout="@layout/fragment_peminjaman" />
     <fragment
         android:id="@+id/itemProfil"
-        android:name="com.ubaya.a160419024_ubayalibrary.ProfileFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/itemKomputer"
-        android:name="com.ubaya.a160419024_ubayalibrary.KomputerFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.KomputerFragment"
         android:label="fragment_komputer"
         tools:layout="@layout/fragment_komputer" />
     <fragment
         android:id="@+id/itemRuang"
-        android:name="com.ubaya.a160419024_ubayalibrary.RuangFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.RuangFragment"
         android:label="fragment_ruang"
         tools:layout="@layout/fragment_ruang" />
+    <fragment
+        android:id="@+id/detailBukuFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.DetailBukuFragment"
+        android:label="fragment_detail_buku"
+        tools:layout="@layout/fragment_detail_buku" />
 </navigation>
