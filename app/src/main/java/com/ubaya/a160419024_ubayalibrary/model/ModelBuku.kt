@@ -7,6 +7,7 @@ data class Book(
     var judul:String?,
     var penulis:String?,
     var tahun:String?,
+    var sinopsis:String?,
     @SerializedName("photo_url")
     var photoUrl:String?
 )

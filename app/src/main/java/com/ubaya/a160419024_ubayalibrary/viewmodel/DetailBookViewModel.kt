@@ -13,24 +13,23 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ubaya.a160419024_ubayalibrary.model.Book
 
-class ListBookViewModel(application: Application) :AndroidViewModel(application) {
-    val booksLD = MutableLiveData<ArrayList<Book>>()
+class DetailBookViewModel (application: Application) : AndroidViewModel(application) {
+    val booksLD = MutableLiveData<Book>()
     val bookLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 
     val TAG = "volleyTag"
-    private var queue:RequestQueue? = null
+    private var queue: RequestQueue? = null
 
-    fun refresh(){
-        bookLoadErrorLD.value = false
-        loadingLD.value = true
+    fun fetch(bookId : String){
+        //booksLD.value = Book( "bk001", "Daughter of the deep",  "Rick Riordan", "2021",  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et justo sollicitudin, scelerisque orci ornare, tristique ligula. Vestibulum et est" ,"https://images-na.ssl-images-amazon.com/images/I/51kwdVrx8zL._SX335_BO1,204,203,200_.jpg")
+
         queue = Volley.newRequestQueue(getApplication())
-        val url = "https://ubaya.fun/native/160419024/daftarbuku.php"
+        var url = "https://ubaya.fun/native/160419024/daftarbuku.php?id=$bookId"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
-                val sType = object : TypeToken<ArrayList<Book>>() {}.type
-                val result = Gson().fromJson<ArrayList<Book>>(it, sType)
+                val result = Gson().fromJson<Book>(it, Book::class.java)
                 booksLD.value = result
 
                 loadingLD.value = false
@@ -44,6 +43,9 @@ class ListBookViewModel(application: Application) :AndroidViewModel(application)
             tag = "TAG"
         }
         queue?.add(stringRequest)
+
+        bookLoadErrorLD.value = false
+        loadingLD.value = false
     }
 
     override fun onCleared() {

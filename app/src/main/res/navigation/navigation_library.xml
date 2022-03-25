@@ -11,7 +11,7 @@
         android:label="fragment_book_list"
         tools:layout="@layout/fragment_book_list" >
         <action
-            android:id="@+id/action_itemBuku_to_detailBukuFragment"
+            android:id="@+id/actionBookDetail"
             app:destination="@id/detailBukuFragment" />
     </fragment>
     <fragment
@@ -38,5 +38,9 @@
         android:id="@+id/detailBukuFragment"
         android:name="com.ubaya.a160419024_ubayalibrary.view.DetailBukuFragment"
         android:label="fragment_detail_buku"
-        tools:layout="@layout/fragment_detail_buku" />
+        tools:layout="@layout/fragment_detail_buku" >
+        <argument
+            android:name="bookID"
+            app:argType="string" />
+    </fragment>
 </navigation>

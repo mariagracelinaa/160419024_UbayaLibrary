@@ -3,10 +3,13 @@ package com.ubaya.a160419024_ubayalibrary.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.ubaya.a160419024_ubayalibrary.R
 import com.ubaya.a160419024_ubayalibrary.model.Book
+import com.ubaya.a160419024_ubayalibrary.util.loadImage
 import kotlinx.android.synthetic.main.card_book_list.view.*
+import kotlinx.android.synthetic.main.fragment_book_list.view.*
 
 class BookListAdapter (val bookList: ArrayList<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>(){
     class BookViewHolder(var view: View) : RecyclerView.ViewHolder(view)
@@ -22,7 +25,15 @@ class BookListAdapter (val bookList: ArrayList<Book>) : RecyclerView.Adapter<Boo
         with(holder.view){
             txtJudulBukuCard.text = book.judul
             txtPenulisCard.text = book.penulis
+            imgBukuCard.loadImage(book.photoUrl, progressBarCoverList)
+
+            cardViewBook.setOnClickListener {
+                val ID = book.id.toString()
+                val action = BookListFragmentDirections.actionBookDetail(ID)
+                Navigation.findNavController(it).navigate(action)
+            }
         }
+
     }
 
     override fun getItemCount(): Int = bookList.size

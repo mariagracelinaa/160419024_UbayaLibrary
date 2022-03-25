@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardViewBook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -27,8 +27,8 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imgBuku"
-                android:layout_width="wrap_content"
+                android:id="@+id/imgBukuCard"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
                 android:src="@drawable/lorem2"
@@ -51,7 +51,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgBuku" />
+                app:layout_constraintTop_toBottomOf="@+id/imgBukuCard" />
 
             <TextView
                 android:id="@+id/txtPenulisCard"
@@ -68,6 +68,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtJudulBukuCard" />
+
+            <ProgressBar
+                android:id="@+id/progressBarCoverList"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/txtPenulisCard"
+                app:layout_constraintEnd_toEndOf="@+id/imgBukuCard"
+                app:layout_constraintStart_toStartOf="@+id/imgBukuCard"
+                app:layout_constraintTop_toTopOf="@+id/imgBukuCard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
