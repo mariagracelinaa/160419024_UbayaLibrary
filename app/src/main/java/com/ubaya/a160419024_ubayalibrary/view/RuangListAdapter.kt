@@ -30,9 +30,9 @@ class RuangListAdapter (val ruangList: ArrayList<Ruang>) : RecyclerView.Adapter<
 
     override fun getItemCount(): Int = ruangList.size
 
-    fun updateRuangList(newBookList: ArrayList<Ruang>){
+    fun updateRuangList(newRuangList: ArrayList<Ruang>){
         ruangList.clear()
-        ruangList.addAll(newBookList)
+        ruangList.addAll(newRuangList)
         notifyDataSetChanged()
     }
 }
