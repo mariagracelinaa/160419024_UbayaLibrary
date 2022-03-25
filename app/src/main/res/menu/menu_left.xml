@@ -10,4 +10,8 @@
         android:id="@+id/itemRuang"
         android:icon="@drawable/ic_baseline_meeting_room_24"
         android:title="Ruang" />
+    <item
+        android:id="@+id/itemUsulan"
+        android:icon="@drawable/ic_baseline_library_add_24"
+        android:title="Pengusulan Pustaka" />
 </menu>

@@ -27,7 +27,7 @@ class BookListFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ListBookViewModel::class.java)
         viewModel.refresh()
 
-        recViewBookList.layoutManager = GridLayoutManager(context, 2)
+        recViewBookList.layoutManager = GridLayoutManager(context, 3)
         recViewBookList.adapter = bookListAdapter
 
         refreshLayoutBookList.setOnRefreshListener {
