@@ -14,4 +14,8 @@
         android:id="@+id/itemUsulan"
         android:icon="@drawable/ic_baseline_library_add_24"
         android:title="Pengusulan Pustaka" />
+    <item
+        android:id="@+id/itemJurnal"
+        android:icon="@drawable/ic_baseline_bookmark_border_24"
+        android:title="e-journal" />
 </menu>

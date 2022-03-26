@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
@@ -17,6 +18,7 @@ import com.ubaya.a160419024_ubayalibrary.R
 import com.ubaya.a160419024_ubayalibrary.model.Book
 import com.ubaya.a160419024_ubayalibrary.util.loadImage
 import com.ubaya.a160419024_ubayalibrary.viewmodel.DetailBookViewModel
+import kotlinx.android.synthetic.main.card_book_list.view.*
 import kotlinx.android.synthetic.main.fragment_detail_buku.*
 
 class DetailBukuFragment : Fragment() {
@@ -37,24 +39,11 @@ class DetailBukuFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailBookViewModel::class.java)
         viewModel.fetch(bookID)
 
-//        arguments?.let {
-//            val bookID = DetailBukuFragmentArgs.fromBundle(requireArguments()).bookID
-//            queue = Volley.newRequestQueue(context)
-//            var url = "https://ubaya.fun/native/160419024/daftarbuku.php?id=$bookID"
-//            val stringRequest = StringRequest(
-//                Request.Method.GET, url,
-//                { response ->
-//                    val result = Gson().fromJson<Book>(response, Book::class.java)
-//
-//                    viewModel.booksLD.value = result
-//                    Log.d("showvolley", response.toString())
-//                },
-//                {
-//                    Log.d("showvolley", it.toString())
-//                })
-//            stringRequest.tag = TAG
-//            queue?.add(stringRequest)
-//        }
+        btnPinjam.setOnClickListener {
+            val action = DetailBukuFragmentDirections.actionTambahPinjaman()
+            Navigation.findNavController(it).navigate(action)
+        }
+
         observeViewModel()
     }
 

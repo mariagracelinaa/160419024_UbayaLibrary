@@ -42,10 +42,26 @@
         <argument
             android:name="bookID"
             app:argType="string" />
+        <action
+            android:id="@+id/actionMainFragment"
+            app:destination="@id/itemBuku" />
+        <action
+            android:id="@+id/actionTambahPinjaman"
+            app:destination="@id/tambahPinjamanFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemUsulan"
         android:name="com.ubaya.a160419024_ubayalibrary.view.PengusulanPustakaFragment"
         android:label="Pengusulan Pustaka"
         tools:layout="@layout/fragment_pengusulan_pustaka" />
+    <fragment
+        android:id="@+id/itemJurnal"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.JournalFragment"
+        android:label="Daftar Jurnal"
+        tools:layout="@layout/fragment_journal" />
+    <fragment
+        android:id="@+id/tambahPinjamanFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.TambahPinjamanFragment"
+        android:label="Data Peminjaman"
+        tools:layout="@layout/fragment_tambah_pinjaman" />
 </navigation>
