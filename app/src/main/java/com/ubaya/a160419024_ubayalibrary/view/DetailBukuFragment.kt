@@ -23,8 +23,6 @@ import kotlinx.android.synthetic.main.fragment_detail_buku.*
 
 class DetailBukuFragment : Fragment() {
     private lateinit var viewModel: DetailBookViewModel
-    private val TAG = "volleyTag"
-    private var queue: RequestQueue?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

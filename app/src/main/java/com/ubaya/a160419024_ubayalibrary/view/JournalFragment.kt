@@ -34,13 +34,13 @@ class JournalFragment : Fragment() {
         recViewJurnal.layoutManager = LinearLayoutManager(context)
         recViewJurnal.adapter = jurnalListAdapter
 
-//        refreshLayoutBookList.setOnRefreshListener {
-//            recViewJurnal.visibility = View.GONE
-//            txtErrorJurnal.visibility = View.GONE
-//            progressBarDaftarJurnal.visibility = View.VISIBLE
-//            viewModel.refresh()
-//            refreshLayoutBookList.isRefreshing = false
-//        }
+        refreshLayoutJurnal.setOnRefreshListener {
+            recViewJurnal.visibility = View.GONE
+            txtErrorJurnal.visibility = View.GONE
+            progressBarDaftarJurnal.visibility = View.VISIBLE
+            viewModel.refresh()
+            refreshLayoutJurnal.isRefreshing = false
+        }
 
         observeViewModel()
     }

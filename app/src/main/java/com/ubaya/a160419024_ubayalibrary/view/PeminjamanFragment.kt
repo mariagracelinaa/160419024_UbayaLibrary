@@ -5,9 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.a160419024_ubayalibrary.R
+import com.ubaya.a160419024_ubayalibrary.viewmodel.ListPeminjamanViewModel
+import kotlinx.android.synthetic.main.fragment_peminjaman.*
 
 class PeminjamanFragment : Fragment() {
+    private lateinit var viewModel : ListPeminjamanViewModel
+    private val peminjamanListAdapter = ListPeminjamanAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -15,6 +21,42 @@ class PeminjamanFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_peminjaman, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel = ViewModelProvider(this).get(ListPeminjamanViewModel::class.java)
+        viewModel.refresh()
+
+        recViewPeminjaman.layoutManager = LinearLayoutManager(context)
+        recViewPeminjaman.adapter = peminjamanListAdapter
+
+        refreshLayoutPeminjaman.setOnRefreshListener {
+            recViewPeminjaman.visibility = View.GONE
+            txtErrorPeminjaman.visibility = View.GONE
+            progressBarPeminjaman.visibility = View.VISIBLE
+            viewModel.refresh()
+            refreshLayoutPeminjaman.isRefreshing = false
+        }
+
+        observeViewModel()
+    }
+
+    private fun observeViewModel() {
+        viewModel.peminjamansLD.observe(viewLifecycleOwner){
+            peminjamanListAdapter.updatePeminjamanList(it)
+        }
+        viewModel.peminjamanLoadErrorLD.observe(viewLifecycleOwner){
+            txtErrorPeminjaman.visibility = if (it) View.VISIBLE else View.GONE
+        }
+        viewModel.loadingLD.observe(viewLifecycleOwner){
+            if(it){
+                recViewPeminjaman.visibility = View.GONE
+                progressBarPeminjaman.visibility = View.VISIBLE
+            }else{
+                recViewPeminjaman.visibility = View.VISIBLE
+                progressBarPeminjaman.visibility = View.GONE
+            }
+        }
     }
 
 }
