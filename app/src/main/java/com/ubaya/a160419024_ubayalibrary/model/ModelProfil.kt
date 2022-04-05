@@ -5,5 +5,6 @@ data class Profil(
     var nama:String?,
     var fakultas:String?,
     var jurusan:String?,
-    var email:String?
+    var email:String?,
+    var url:String?
 )

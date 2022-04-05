@@ -36,7 +36,7 @@ class ProfileFragment : Fragment() {
         viewModel.profilsLD.observe(viewLifecycleOwner){
             val profil = viewModel.profilsLD.value
             profil?.let {
-//                imgBukuDetail.loadImage(it.photoUrl, progressBarCoverDetail)
+                imgProfil.loadImage(it.url, progressBarProfil)
                 txtNamaProfil.setText(it.nama)
                 txtNRPProfil.setText(it.nrp)
                 txtFakultas.setText(it.fakultas)
