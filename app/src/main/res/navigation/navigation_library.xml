@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_library"
-    app:startDestination="@id/itemBuku">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/itemBuku"
@@ -64,4 +64,25 @@
         android:name="com.ubaya.a160419024_ubayalibrary.view.TambahPinjamanFragment"
         android:label="Data Peminjaman"
         tools:layout="@layout/fragment_tambah_pinjaman" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/actionItemBuku"
+            app:destination="@id/itemBuku" />
+        <action
+            android:id="@+id/actionRegister"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/actionLogin"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
