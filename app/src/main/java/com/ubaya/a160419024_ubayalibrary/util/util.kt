@@ -1,11 +1,14 @@
 package com.ubaya.a160419024_ubayalibrary.util
 
+import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.room.Room
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.ubaya.a160419024_ubayalibrary.R
+import com.ubaya.a160419024_ubayalibrary.model.BookDatabase
 import java.lang.Exception
 
 fun ImageView.loadImage(url: String?, progressBar: ProgressBar){
@@ -23,4 +26,12 @@ fun ImageView.loadImage(url: String?, progressBar: ProgressBar){
 
             }
         })
+}
+
+val DB_NAME = "bookdb"
+
+fun buildDB(context: Context):BookDatabase{
+    val db = Room.databaseBuilder(context, BookDatabase::class.java, DB_NAME).build()
+
+    return db
 }

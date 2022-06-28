@@ -12,11 +12,17 @@ import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ubaya.a160419024_ubayalibrary.model.Book
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlin.coroutines.CoroutineContext
 
-class DetailBookViewModel (application: Application) : AndroidViewModel(application) {
+class DetailBookViewModel (application: Application) : AndroidViewModel(application), CoroutineScope {
     val booksLD = MutableLiveData<Book>()
     val bookLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
+
+    private val job = Job()
 
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
@@ -52,4 +58,8 @@ class DetailBookViewModel (application: Application) : AndroidViewModel(applicat
         super.onCleared()
         queue?.cancelAll(TAG)
     }
+
+
+    override val coroutineContext: CoroutineContext
+        get() = job + Dispatchers.Main
 }
