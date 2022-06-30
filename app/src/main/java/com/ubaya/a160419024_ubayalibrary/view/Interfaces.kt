@@ -7,6 +7,10 @@ interface BookAddListener{
     fun onAddNewBook(view: View)
 }
 
+interface BookDetailClickListener {
+    fun onBookDetailClick(view: View)
+}
+
 interface BookSaveChangesListener{
     fun onSaveChanges(
         view :View,

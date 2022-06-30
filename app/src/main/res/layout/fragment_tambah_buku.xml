@@ -84,10 +84,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtTahunTambah"
-                android:text="@={book.tahun}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tahun Terbit" />
+                android:hint="Tahun Terbit"
+                android:inputType="number"
+                android:text="@={book.tahun}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

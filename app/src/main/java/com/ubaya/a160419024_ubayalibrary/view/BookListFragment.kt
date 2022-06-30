@@ -31,14 +31,6 @@ class BookListFragment : Fragment() {
         recViewBookList.layoutManager = GridLayoutManager(context, 3)
         recViewBookList.adapter = bookListAdapter
 
-        refreshLayoutBookList.setOnRefreshListener {
-            recViewBookList.visibility = View.GONE
-            txtErrorBookList.visibility = View.GONE
-            progressLoadBookList.visibility = View.VISIBLE
-            viewModel.refresh()
-            refreshLayoutBookList.isRefreshing = false
-        }
-
         fabAddBook.setOnClickListener {
             val action = BookListFragmentDirections.actionTambahBuku()
             Navigation.findNavController(it).navigate(action)
