@@ -7,43 +7,56 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ubaya.a160419024_ubayalibrary.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        navController = (supportFragmentManager.findFragmentById(R.id.hostFragment)
-                as NavHostFragment).navController
+
+        navController = (supportFragmentManager.findFragmentById(R.id.hostFragment) as NavHostFragment).navController
+
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.itemLogin,
+                R.id.registerFragment
+            )
+        )
+
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(navView, navController)
-        bottomNav.setupWithNavController(navController)
-        NavigationUI.setupActionBarWithNavController(this, navController)
 
-        //Buat nampilin atau sembunyikan bottom nav di fragment tertentu
+        setupActionBarWithNavController(navController!!, appBarConfiguration!!)
+
+        bottomNav.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.itemLogin || destination.id == R.id.registerFragment) {
-                bottomNav.visibility = View.GONE
-                navView.visibility = View.GONE
-            }
-            else {
-                NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-                NavigationUI.setupWithNavController(navView, navController)
-                bottomNav.setupWithNavController(navController)
-                bottomNav.visibility = View.VISIBLE
-                navView.visibility = View.VISIBLE
+            when (destination.id) {
+                R.id.itemBuku -> showNav()
+                R.id.itemProfil -> showNav()
+                R.id.itemRuang -> showNav()
+                else -> hideNav()
             }
         }
     }
 
+    private fun showNav() {
+        bottomNav.visibility = View.VISIBLE
+        navView.visibility = View.VISIBLE
+    }
+
+    private fun hideNav() {
+        bottomNav.visibility = View.GONE
+        navView.visibility = View.GONE
+    }
+
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp(drawerLayout) || super.onSupportNavigateUp()
+        return NavigationUI.navigateUp(navController, drawerLayout) || super.onSupportNavigateUp()
     }
 
 }
