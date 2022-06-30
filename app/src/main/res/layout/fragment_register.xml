@@ -92,11 +92,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
-                    android:text="register"
                     android:onClick="@{registerListener::onRegisterUser}"
-                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
-                    app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
-                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+                    android:text="register"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
                 <TextView
                     android:id="@+id/textView21"
@@ -119,6 +119,42 @@
                     android:textColor="#00C4FF"
                     app:layout_constraintStart_toEndOf="@+id/textView21"
                     app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout4"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtNama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nama"
+                        android:text="@={user.nama}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout5"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPhotoUrlUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Photo URL"
+                        android:text="@={user.photoUrl}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

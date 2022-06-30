@@ -20,142 +20,157 @@
         android:layout_height="match_parent"
         tools:context=".view.TambahBukuFragment">
 
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Ubah Buku"
-            android:textSize="28sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="-34dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView22">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtJudulEdit"
-                android:text="@={book.judul}"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Judul Buku" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:text="Ubah Buku"
+                    android:textSize="28sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtPenulisEdit"
-                android:text="@={book.penulis}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nama Penulis" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/btnSimpanEditBuku"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:onClick="@{(view) -> saveListener.onSaveChanges(view, book)}"
+                    android:text="Simpan"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout14"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout14"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout9"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout9"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="ID Buku"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout12"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout12"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout12">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtTahunEdit"
-                android:text="@={book.tahun}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tahun Terbit" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtIdEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={book.id}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout12"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout13"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout13"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="Sinopsis"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout10"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout10"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtPhotoUrlEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Photo URL"
-                android:text="@={book.photoUrl}" />
-        </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSinopsisEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={book.sinopsis}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btnSimpanEditBuku"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="@{(view) -> saveListener.onSaveChanges(view, book)}"
-            android:text="Simpan"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout14"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout14"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout9"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout9"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout13"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Sinopsis"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout10"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout10"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTahunEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Tahun Terbit"
+                        android:text="@={book.tahun}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtSinopsisEdit"
-                android:text="@={book.sinopsis}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout13"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout13"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout14"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="ID Buku"
-            app:hintAnimationEnabled="true"
-            app:hintEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout12"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout12"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout12">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPhotoUrlEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Photo URL"
+                        android:text="@={book.photoUrl}" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtIdEdit"
-                android:text="@={book.id}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView22">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtJudulEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Judul Buku"
+                        android:text="@={book.judul}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout6"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout6"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPenulisEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nama Penulis"
+                        android:text="@={book.penulis}" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

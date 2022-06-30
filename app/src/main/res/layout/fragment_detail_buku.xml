@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="book"
+            name = "book"
             type = "com.ubaya.a160419024_ubayalibrary.model.Book">
         </variable>
     </data>

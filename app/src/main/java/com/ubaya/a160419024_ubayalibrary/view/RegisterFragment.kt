@@ -34,7 +34,7 @@ class RegisterFragment : Fragment(), RegisterListener {
 
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        dataBinding.user = User("", "")
+        dataBinding.user = User("", "", "", "")
         dataBinding.registerListener = this
 
         txtClickHereToLogin.setOnClickListener {

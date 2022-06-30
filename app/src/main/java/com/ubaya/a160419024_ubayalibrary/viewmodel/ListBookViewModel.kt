@@ -37,7 +37,6 @@ class ListBookViewModel(application: Application) :AndroidViewModel(application)
         launch {
             val db = Room.databaseBuilder(getApplication(), BookDatabase::class.java, "bookdb").build()
             booksLD.value = db.bukuDao().selectAllBook()
-
         }
     }
 

@@ -57,5 +57,28 @@
             app:layout_constraintEnd_toEndOf="@+id/imgProfil"
             app:layout_constraintStart_toStartOf="@+id/imgProfil"
             app:layout_constraintTop_toTopOf="@+id/imgProfil" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Nama : "
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/txtNamaUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:text="@{user.nama}"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/txtUsernameProfil" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
