@@ -22,7 +22,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class ListBookViewModel(application: Application) :AndroidViewModel(application), CoroutineScope  {
-    val booksLD = MutableLiveData<ArrayList<Book>>()
+    val booksLD = MutableLiveData<List<Book>>()
     val bookLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
 

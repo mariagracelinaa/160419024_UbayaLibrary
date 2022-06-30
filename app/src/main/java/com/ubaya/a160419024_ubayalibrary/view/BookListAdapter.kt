@@ -38,7 +38,7 @@ class BookListAdapter (val bookList: ArrayList<Book>) : RecyclerView.Adapter<Boo
 
     override fun getItemCount(): Int = bookList.size
 
-    fun updateBookList(newBookList: ArrayList<Book>){
+    fun updateBookList(newBookList: List<Book>){
         bookList.clear()
         bookList.addAll(newBookList)
         notifyDataSetChanged()

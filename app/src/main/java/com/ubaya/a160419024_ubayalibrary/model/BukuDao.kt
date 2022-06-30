@@ -8,7 +8,7 @@ interface BukuDao {
     suspend fun insertAll(vararg book:Book)
 
     @Query("SELECT * FROM book")
-    suspend fun selectAllBook(): ArrayList<Book>
+    suspend fun selectAllBook(): List<Book>
 
     @Query("SELECT * FROM book WHERE uuid = :id")
     suspend fun selectBook(id:Int):Book
