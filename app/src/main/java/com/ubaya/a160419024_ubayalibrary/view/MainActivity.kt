@@ -24,6 +24,22 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
         NavigationUI.setupWithNavController(navView, navController)
         bottomNav.setupWithNavController(navController)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+
+        //Buat nampilin atau sembunyikan bottom nav di fragment tertentu
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.itemLogin || destination.id == R.id.registerFragment) {
+                bottomNav.visibility = View.GONE
+                navView.visibility = View.GONE
+            }
+            else {
+                NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+                NavigationUI.setupWithNavController(navView, navController)
+                bottomNav.setupWithNavController(navController)
+                bottomNav.visibility = View.VISIBLE
+                navView.visibility = View.VISIBLE
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -40,6 +40,8 @@
 
         <ImageView
             android:id="@+id/imgProfil"
+            imageUrl="@{user.photoUrl}"
+            progressBar="@{progressBarProfil}"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
