@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.ui.*
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ubaya.a160419024_ubayalibrary.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -43,6 +40,9 @@ class MainActivity : AppCompatActivity() {
                 else -> hideNav()
             }
         }
+//        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+//        NavigationUI.setupWithNavController(navView, navController)
+//        bottomNav.setupWithNavController(navController)
     }
 
     private fun showNav() {
