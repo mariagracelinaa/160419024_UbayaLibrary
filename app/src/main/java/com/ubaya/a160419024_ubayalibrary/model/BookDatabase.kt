@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.ubaya.a160419024_ubayalibrary.util.MIGRATION_1_2
 
-@Database(entities = arrayOf(Book::class), version = 1)
+@Database(entities = arrayOf(Book::class, Ruang::class, User::class), version = 2)
 abstract class BookDatabase:RoomDatabase() {
     abstract fun bukuDao():BukuDao
+    abstract fun ruangDao():RuangDao
+    abstract fun userDao():UserDao
 
     companion object {
         @Volatile private var instance: BookDatabase ?= null
@@ -17,7 +20,9 @@ abstract class BookDatabase:RoomDatabase() {
             context.applicationContext,
             BookDatabase::class.java,
             "bookdb"
-        ).build()
+        ).fallbackToDestructiveMigration()
+            .addMigrations(MIGRATION_1_2)
+            .build()
 
         operator fun invoke(context: Context) = instance ?: synchronized(LOCK){
             instance ?: buildDatabase(context).also {

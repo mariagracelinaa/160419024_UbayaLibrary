@@ -13,3 +13,11 @@ interface BookSaveChangesListener{
         obj:Book
     )
 }
+
+interface RuangAddListener{
+    fun onAddNewRuang(view: View)
+}
+
+interface RegisterListener {
+    fun onRegisterUser(view: View)
+}

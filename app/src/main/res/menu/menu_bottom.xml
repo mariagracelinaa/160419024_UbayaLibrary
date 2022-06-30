@@ -8,9 +8,9 @@
         android:title="Buku"
         app:showAsAction="always" />
     <item
-        android:id="@+id/itemPeminjaman"
-        android:icon="@drawable/ic_baseline_library_books_24"
-        android:title="Peminjaman"
+        android:id="@+id/itemRuang"
+        android:icon="@drawable/ic_baseline_meeting_room_24"
+        android:title="Ruang"
         app:showAsAction="always" />
     <item
         android:id="@+id/itemProfil"

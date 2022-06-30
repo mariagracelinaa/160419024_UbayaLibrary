@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_library"
-    app:startDestination="@id/itemBuku">
+    app:startDestination="@id/itemLogin">
 
     <fragment
         android:id="@+id/itemBuku"
@@ -18,25 +18,19 @@
             app:destination="@id/tambahBukuFragment" />
     </fragment>
     <fragment
-        android:id="@+id/itemPeminjaman"
-        android:name="com.ubaya.a160419024_ubayalibrary.view.PeminjamanFragment"
-        android:label="Daftar Pinjaman"
-        tools:layout="@layout/fragment_peminjaman" />
-    <fragment
         android:id="@+id/itemProfil"
         android:name="com.ubaya.a160419024_ubayalibrary.view.ProfileFragment"
         android:label="Profil"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/itemKomputer"
-        android:name="com.ubaya.a160419024_ubayalibrary.view.KomputerFragment"
-        android:label="Daftar Komputer"
-        tools:layout="@layout/fragment_komputer" />
-    <fragment
         android:id="@+id/itemRuang"
         android:name="com.ubaya.a160419024_ubayalibrary.view.RuangFragment"
         android:label="Daftar Ruang"
-        tools:layout="@layout/fragment_ruang" />
+        tools:layout="@layout/fragment_ruang" >
+        <action
+            android:id="@+id/actionTambahRuang"
+            app:destination="@id/createRuangFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailBukuFragment"
         android:name="com.ubaya.a160419024_ubayalibrary.view.DetailBukuFragment"
@@ -53,16 +47,6 @@
             app:destination="@id/ubahBukuFragment" />
     </fragment>
     <fragment
-        android:id="@+id/itemUsulan"
-        android:name="com.ubaya.a160419024_ubayalibrary.view.PengusulanPustakaFragment"
-        android:label="Pengusulan Pustaka"
-        tools:layout="@layout/fragment_pengusulan_pustaka" />
-    <fragment
-        android:id="@+id/itemJurnal"
-        android:name="com.ubaya.a160419024_ubayalibrary.view.JournalFragment"
-        android:label="Daftar Jurnal"
-        tools:layout="@layout/fragment_journal" />
-    <fragment
         android:id="@+id/tambahBukuFragment"
         android:name="com.ubaya.a160419024_ubayalibrary.view.TambahBukuFragment"
         android:label="Tambah Buku" />
@@ -73,5 +57,29 @@
         <argument
             android:name="uuid"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/createRuangFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.CreateRuangFragment"
+        android:label="CreateRuangFragment" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.RegisterFragment"
+        android:label="Halaman Register" >
+        <action
+            android:id="@+id/actionToLogin"
+            app:destination="@id/itemLogin" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemLogin"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.LoginFragment"
+        android:label="Halaman Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actionToRegister"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/actionToListBuku"
+            app:destination="@id/itemBuku" />
     </fragment>
 </navigation>

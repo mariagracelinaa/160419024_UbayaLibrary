@@ -1,186 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.RegisterFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
+    <data>
+        <variable
+            name="user"
+            type = "com.ubaya.a160419024_ubayalibrary.model.User">
+        </variable>
 
-    <ScrollView
+        <variable
+            name="registerListener"
+            type = "com.ubaya.a160419024_ubayalibrary.view.RegisterListener">
+        </variable>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".view.RegisterFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!-- TODO: Update blank fragment layout -->
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Register"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout3"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtNamaRegister"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Nama" />
+                    android:layout_marginTop="30dp"
+                    android:text="Register"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout4"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtNRPRegister"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout3"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="NRP" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout5"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtUsernameRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Username"
+                        android:text="@={user.username}" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtFakultasRegister"
-                    android:layout_width="match_parent"
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout8"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="Fakultas" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="16dp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+                    app:passwordToggleEnabled="true">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout7"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPasswordRegister"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:text="@={user.password}"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtJurusanRegister"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="Jurusan" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="1"
+                    android:text="register"
+                    android:onClick="@{registerListener::onRegisterUser}"
+                    app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
+                    app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
+                    app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout11"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout7"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtEmailRegister"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="45dp"
+                    android:text="Already have an account?"
+                    app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+                    app:layout_constraintHorizontal_bias="0.44"
+                    app:layout_constraintStart_toStartOf="@+id/btnRegister"
+                    app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout8"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:hintAnimationEnabled="true"
-                app:hintEnabled="true"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout7"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout11"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtPasswordRegister"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/txtClickHereToLogin"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:inputType="textPassword" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_marginStart="2dp"
+                    android:text="Click here"
+                    android:textColor="#00C4FF"
+                    app:layout_constraintStart_toEndOf="@+id/textView21"
+                    app:layout_constraintTop_toTopOf="@+id/textView21" />
 
-            <Button
-                android:id="@+id/btnRegister"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:text="register"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout8"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout8"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="45dp"
-                android:text="Already have an account?"
-                app:layout_constraintEnd_toEndOf="@+id/btnRegister"
-                app:layout_constraintHorizontal_bias="0.44"
-                app:layout_constraintStart_toStartOf="@+id/btnRegister"
-                app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
-
-            <TextView
-                android:id="@+id/txtClickHereToLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:text="Click here"
-                android:textColor="#00C4FF"
-                app:layout_constraintStart_toEndOf="@+id/textView21"
-                app:layout_constraintTop_toTopOf="@+id/textView21" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

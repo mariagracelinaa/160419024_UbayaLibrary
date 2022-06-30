@@ -3,19 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/itemKomputer"
-        android:icon="@drawable/ic_baseline_computer_24"
-        android:title="Komputer" />
-    <item
         android:id="@+id/itemRuang"
         android:icon="@drawable/ic_baseline_meeting_room_24"
         android:title="Ruang" />
     <item
-        android:id="@+id/itemUsulan"
-        android:icon="@drawable/ic_baseline_library_add_24"
-        android:title="Pengusulan Pustaka" />
+        android:id="@+id/itemBuku"
+        android:icon="@drawable/ic_baseline_book_24"
+        android:title="Buku" />
     <item
-        android:id="@+id/itemJurnal"
-        android:icon="@drawable/ic_baseline_bookmark_border_24"
-        android:title="e-journal" />
+        android:id="@+id/itemLogin"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="Logout" />
 </menu>

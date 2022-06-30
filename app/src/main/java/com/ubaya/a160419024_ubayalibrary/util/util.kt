@@ -33,7 +33,21 @@ fun ImageView.loadImage(url: String?, progressBar: ProgressBar){
 val DB_NAME = "bookdb"
 
 fun buildDB(context: Context):BookDatabase{
-    val db = Room.databaseBuilder(context, BookDatabase::class.java, DB_NAME).build()
+    val db = Room.databaseBuilder(context, BookDatabase::class.java, DB_NAME)
+        .fallbackToDestructiveMigration()
+        .addMigrations(MIGRATION_1_2)
+        .build()
 
     return db
+}
+
+val MIGRATION_1_2 = object : Migration(1,2) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        database.execSQL(
+            "CREATE TABLE 'Ruang' ('uuid'INTEGER,'nama' TEXT, 'kapasitas' TEXT, PRIMARY KEY('uuid'))"
+        )
+        database.execSQL(
+            "CREATE TABLE 'User' ('username' TEXT, 'password' TEXT, PRIMARY KEY('username'))"
+        )
+    }
 }

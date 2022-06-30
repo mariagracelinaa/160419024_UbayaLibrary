@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ubaya.a160419024_ubayalibrary.R
@@ -33,13 +34,10 @@ class RuangFragment : Fragment() {
         recViewRuang.layoutManager = LinearLayoutManager(context)
         recViewRuang.adapter = ruangListAdapter
 
-//        refreshLayoutRuangList.setOnRefreshListener {
-//            recViewRuang.visibility = View.GONE
-//            txtErrorDaftarRuang.visibility = View.GONE
-//            progressBarDaftarRuang.visibility = View.VISIBLE
-//            viewModel.refresh()
-//            refreshLayoutRuangList.isRefreshing = false
-//        }
+        fabAddRuang.setOnClickListener {
+            val action = RuangFragmentDirections.actionTambahRuang()
+            Navigation.findNavController(it).navigate(action)
+        }
 
         observeViewModel()
     }
