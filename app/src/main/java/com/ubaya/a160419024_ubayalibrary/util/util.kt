@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import com.ubaya.a160419024_ubayalibrary.R

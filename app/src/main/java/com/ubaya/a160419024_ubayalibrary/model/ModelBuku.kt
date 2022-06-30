@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity
 data class Book(
-    val id:String?,
+    var id:String?,
     var judul:String?,
     var penulis:String?,
     var tahun:String?,

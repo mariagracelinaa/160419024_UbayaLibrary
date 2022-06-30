@@ -28,7 +28,7 @@ class BookListAdapter (val bookList: ArrayList<Book>) : RecyclerView.Adapter<Boo
             imgBukuCard.loadImage(book.photoUrl, progressBarCoverList)
 
             cardViewBook.setOnClickListener {
-                val ID = book.id.toString()
+                val ID = book.uuid
                 val action = BookListFragmentDirections.actionBookDetail(ID)
                 Navigation.findNavController(it).navigate(action)
             }

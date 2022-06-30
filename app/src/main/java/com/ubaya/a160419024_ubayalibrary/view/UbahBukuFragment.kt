@@ -1,59 +1,53 @@
 package com.ubaya.a160419024_ubayalibrary.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.ubaya.a160419024_ubayalibrary.R
 import com.ubaya.a160419024_ubayalibrary.databinding.FragmentDetailBukuBinding
+import com.ubaya.a160419024_ubayalibrary.databinding.FragmentUbahBukuBinding
 import com.ubaya.a160419024_ubayalibrary.model.Book
-import com.ubaya.a160419024_ubayalibrary.util.loadImage
 import com.ubaya.a160419024_ubayalibrary.viewmodel.DetailBookViewModel
-import kotlinx.android.synthetic.main.card_book_list.view.*
-import kotlinx.android.synthetic.main.fragment_detail_buku.*
-import kotlinx.android.synthetic.main.fragment_ubah_buku.*
 
-class DetailBukuFragment : Fragment() {
+class UbahBukuFragment : Fragment(), BookSaveChangesListener {
     private lateinit var viewModel: DetailBookViewModel
-    private lateinit var dataBinding : FragmentDetailBukuBinding
+    private lateinit var dataBinding : FragmentUbahBukuBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        dataBinding = FragmentDetailBukuBinding.inflate(inflater, container, false)
+        dataBinding = FragmentUbahBukuBinding.inflate(inflater, container, false)
         return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         viewModel = ViewModelProvider(this).get(DetailBookViewModel::class.java)
-        val bookID = DetailBukuFragmentArgs.fromBundle(requireArguments()).uuid
+        val bookID = UbahBukuFragmentArgs.fromBundle(requireArguments()).uuid
         viewModel.fetch(bookID)
 
-
-        btnUbah.setOnClickListener {
-            val ID = DetailBukuFragmentArgs.fromBundle(requireArguments()).uuid
-            val action = DetailBukuFragmentDirections.actionEditBuku(ID)
-            Navigation.findNavController(it).navigate(action)
-        }
-
         observeViewModel()
+
+        dataBinding.saveListener = this
     }
 
     private fun observeViewModel() {
-        viewModel.booksLD.observe(viewLifecycleOwner, {
+        viewModel.booksLD.observe(viewLifecycleOwner) {
             dataBinding.book = it
-        })
+        }
+    }
+
+    override fun onSaveChanges(view: View, obj: Book) {
+        viewModel.update(obj.id.toString(), obj.judul.toString(), obj.penulis.toString(), obj.tahun.toString(), obj.sinopsis.toString(), obj.photoUrl.toString(), obj.uuid)
+        Toast.makeText(view.context, "Buku Berhasil Diubah", Toast.LENGTH_SHORT).show()
+        Navigation.findNavController(view).popBackStack()
     }
 }

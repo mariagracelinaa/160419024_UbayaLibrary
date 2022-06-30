@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_library"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/itemBuku">
 
     <fragment
         android:id="@+id/itemBuku"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/actionBookDetail"
             app:destination="@id/detailBukuFragment" />
+        <action
+            android:id="@+id/actionTambahBuku"
+            app:destination="@id/tambahBukuFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemPeminjaman"
@@ -40,14 +43,14 @@
         android:label="Detail Buku"
         tools:layout="@layout/fragment_detail_buku">
         <argument
-            android:name="bookID"
-            app:argType="string" />
+            android:name="uuid"
+            app:argType="integer" />
         <action
             android:id="@+id/actionMainFragment"
             app:destination="@id/itemBuku" />
         <action
-            android:id="@+id/actionTambahPinjaman"
-            app:destination="@id/tambahPinjamanFragment" />
+            android:id="@+id/actionEditBuku"
+            app:destination="@id/ubahBukuFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemUsulan"
@@ -60,29 +63,15 @@
         android:label="Daftar Jurnal"
         tools:layout="@layout/fragment_journal" />
     <fragment
-        android:id="@+id/tambahPinjamanFragment"
-        android:name="com.ubaya.a160419024_ubayalibrary.view.TambahPinjamanFragment"
-        android:label="Data Peminjaman"
-        tools:layout="@layout/fragment_tambah_pinjaman" />
+        android:id="@+id/tambahBukuFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.TambahBukuFragment"
+        android:label="Tambah Buku" />
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.ubaya.a160419024_ubayalibrary.view.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/actionItemBuku"
-            app:destination="@id/itemBuku" />
-        <action
-            android:id="@+id/actionRegister"
-            app:destination="@id/registerFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment"
-        android:name="com.ubaya.a160419024_ubayalibrary.view.RegisterFragment"
-        android:label="Register"
-        tools:layout="@layout/fragment_register">
-        <action
-            android:id="@+id/actionLogin"
-            app:destination="@id/loginFragment" />
+        android:id="@+id/ubahBukuFragment"
+        android:name="com.ubaya.a160419024_ubayalibrary.view.UbahBukuFragment"
+        android:label="Ubah" >
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
     </fragment>
 </navigation>

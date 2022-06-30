@@ -9,6 +9,10 @@ plugins {
 android {
     compileSdk 32
 
+    dataBinding{
+        enabled true
+    }
+
     defaultConfig {
         applicationId "com.ubaya.a160419024_ubayalibrary"
         minSdk 21
@@ -54,8 +58,5 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.4.2'
     implementation 'androidx.room:room-ktx:2.4.2'
     kapt "androidx.room:room-compiler:2.4.2"
-
-    //dari utube
-
 
 }

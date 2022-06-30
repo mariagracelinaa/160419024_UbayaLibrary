@@ -31,32 +31,9 @@ class ListBookViewModel(application: Application) :AndroidViewModel(application)
     val TAG = "volleyTag"
     private var queue:RequestQueue? = null
 
-//    fun refresh(){
-//        bookLoadErrorLD.value = false
-//        loadingLD.value = true
-//        queue = Volley.newRequestQueue(getApplication())
-//        val url = "https://ubaya.fun/native/160419024/daftarbuku.php"
-//        val stringRequest = StringRequest(
-//            Request.Method.GET, url,
-//            {
-//                val sType = object : TypeToken<ArrayList<Book>>() {}.type
-//                val result = Gson().fromJson<ArrayList<Book>>(it, sType)
-//                booksLD.value = result
-//
-//                loadingLD.value = false
-//                Log.d("showvolley", it)
-//            },{
-//                bookLoadErrorLD.value = true
-//                loadingLD.value = false
-//                Log.d("error", it.toString())
-//            }
-//        ).apply {
-//            tag = "TAG"
-//        }
-//        queue?.add(stringRequest)
-//    }
-
     fun refresh() {
+        loadingLD.value = false
+        bookLoadErrorLD.value = false
         launch {
             val db = Room.databaseBuilder(getApplication(), BookDatabase::class.java, "bookdb").build()
             booksLD.value = db.bukuDao().selectAllBook()
